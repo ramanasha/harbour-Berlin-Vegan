@@ -5,6 +5,8 @@ Navigation {
     property var initialMenuItem
     property var flickable
 
+    drawer.anchors.topMargin: dp(Theme.navigationBar.height)
+
     Component.onCompleted: {
         var initObj =
         insertNavigationItem(0, Qt.createComponent("MenuItem.qml"))
