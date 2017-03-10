@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file>assets/MaterialIcons-Regular.ttf</file>
         <file>qml/config.json</file>
     </qresource>
     <qresource prefix="/imports/Sailfish/Silica">

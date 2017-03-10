@@ -8,22 +8,22 @@ QtObject {
     function iconBy(type) {
         switch (type) {
         case "answer":
-            return IconType.phone
+            return "phone"
         case "favorite":
-            return IconType.hearto
+            return "star_outline"
         case "home":
-            return IconType.home
+            return "public"
         case "location":
         case "cover-location":
-            return IconType.mapmarker
+            return "place"
         case "food":
-            return IconType.cutlery
+            return "restaurant_menu"
         case "shopping":
-            return IconType.shoppingcart
+            return "shopping_cart"
         case "about":
-            return IconType.questioncircle
+            return "info"
         case "locationarrow":
-            return IconType.locationarrow
+            return "navigation"
         }
     }
 

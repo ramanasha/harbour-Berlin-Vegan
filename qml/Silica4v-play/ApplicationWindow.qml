@@ -22,6 +22,20 @@ App {
         Theme.colors.secondaryBackgroundColor = "white"
         // we need white text in the status bar, because of the Berlin-Vegan green
         Theme.colors.statusBarStyle = Theme.colors.statusBarStyleWhite
+        // replaces the default icon font
+        Theme.iconFont = materialicons
+        // mapping from fontawesome to materialicons:
+        // those icons are hard-coded e.g. into the SearchBar or into the NavigationBar
+        IconType.angleleft = "keyboard_arrow_left"
+        IconType.refresh = "refresh"
+        IconType.search = "search"
+        IconType.times = "clear"
+        IconType.timescircle = "clear"
+    }
+
+    FontLoader {
+        id: materialicons;
+        source: "qrc:/assets/MaterialIcons-Regular.ttf"
     }
 
     Component.onCompleted: {
