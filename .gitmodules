@@ -1,0 +1,3 @@
+[submodule "src/3rdparty/googlemaps"]
+	path = src/3rdparty/googlemaps
+	url = https://github.com/jmastr/googlemaps
