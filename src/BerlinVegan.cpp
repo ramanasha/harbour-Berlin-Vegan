@@ -38,6 +38,9 @@
 #include <QApplication>
 #include <VPApplication>
 #include <QQmlApplicationEngine>
+#include <QGeoServiceProvider>
+
+Q_IMPORT_PLUGIN(QGeoServiceProviderFactoryGooglemaps)
 #endif
 
 int main(int argc, char *argv[])
@@ -55,6 +58,14 @@ int main(int argc, char *argv[])
     qmlRegisterType<TruncationMode>("Sailfish.Silica", 1, 0, "TruncationMode");
 
     QScopedPointer<QApplication> app(new QApplication(argc, argv));
+
+    // Add geo service
+    QGeoServiceProvider *serviceProvider = new QGeoServiceProvider("googlemaps");
+    if (serviceProvider->error() != QGeoServiceProvider::NoError) {
+        qDebug() << "Unable to add geo service. Error:" << serviceProvider->error();
+        app->quit();
+        return -1;
+    }
 
     // Load translations
     QTranslator translator;

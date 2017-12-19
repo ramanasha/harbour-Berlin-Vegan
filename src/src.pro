@@ -36,6 +36,8 @@ CONFIG += sailfishapp_i18n sailfishapp_i18n_idbased
 CONFIG    += v-play
 RESOURCES += qml/Silica4v-play/resources-Silica4v-play.qrc \
              qml/components-v-play/resources-components-v-play.qrc
+
+LIBS += -L../src/3rdparty/googlemaps -lqtgeoservices_googlemaps
 }
 
 android {
