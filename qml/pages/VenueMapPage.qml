@@ -72,10 +72,30 @@ Rectangle {
         onClicked: {
             var query = venueCoordinate.latitude + "," + venueCoordinate.longitude
             if (BVApp.Platform.isIos || BVApp.Platform.isMacOS) {
-                Qt.openUrlExternally("https://maps.apple.com/?q=" + query)
+                // displays a modal alert sheet with the specific options. It uses an AlertDialog on Android and a UIActionSheet on iOS.
+                nativeUtils.displayAlertSheet("", ["Apple Maps", "Google Maps"], true);
             } else {
                 Qt.openUrlExternally("geo:" + query)
             }
+        }
+    }
+
+    // the result of the input dialog is received with a connection to the signal textInputFinished
+    Connections {
+        target: nativeUtils
+        onAlertSheetFinished: {
+            // cancel was clicked
+            if (index === -1) {
+                return;
+            }
+
+            var url = "apple";
+            if (index === 1) {
+                url = "google";
+            }
+
+            var query = venueCoordinate.latitude + "," + venueCoordinate.longitude
+            nativeUtils.openUrl("https://maps." + url + ".com/?q=" + query);
         }
     }
 }
